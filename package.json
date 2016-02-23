@@ -1,0 +1,27 @@
+{
+  "name": "day-off",
+  "version": "0.0.1",
+  "description": "node-js calendar",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remunizz/day-off.git"
+  },
+  "keywords": [
+    "calendar",
+    "nodejs"
+  ],
+  "author": "hi@renanmuniz.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remunizz/day-off/issues"
+  },
+  "homepage": "https://github.com/remunizz/day-off#readme",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
