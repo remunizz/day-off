@@ -36,7 +36,7 @@ var displayCalendar = function () {
         for (j; j < gridDayNum; ++j) {
             // Construct header if is the first week
             if (i == 0) {
-                logHeader2 += " " + weekDaysNames[j] + " ";
+                logHeader2 += " " + weekDaysNames[j].black + " ";
             }
 
             // Set the day number
