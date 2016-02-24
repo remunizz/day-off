@@ -2,6 +2,8 @@ var colors = require('colors');
 
 // Main
 var displayCalendar = function (currentDate, year, month) {
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
     var weekDaysNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     var daysOfMonthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     var firstDayOfMonth = new Date(year != undefined ? year : currentDate.getFullYear(), month != undefined ? month : currentDate.getMonth(), 1);
@@ -23,6 +25,7 @@ var displayCalendar = function (currentDate, year, month) {
 
     var maxDays = (firstDayOfMonth.getFullYear() % 4 == 0 && firstDayOfMonth.getMonth() == 1 ? 29 : daysOfMonthsNum[firstDayOfMonth.getMonth()]);
 
+    console.log(monthNames[new Date(year, month).getMonth()]);
     // Construct string Log
     for (i; i < gridWeekNum; ++i) {
         // Clear log buffer
@@ -68,6 +71,7 @@ var displayCalendar = function (currentDate, year, month) {
         // Print the log day
         console.log(logBuffer);
     }
+    //console.log("\n");
 }
 
 // Init
