@@ -17,9 +17,9 @@ var displayCalendar = function () {
     var gridWeekNum = 6;
 
     var dayBuffer;
-    var logBuffer2;
+    var logBuffer;
     var dayNum;
-    var logHeader2 = "";
+    var logHeader = "";
     var dayCount = 0;
 
     var maxDays = (firstDayOfMonth.getFullYear() % 4 == 0 && firstDayOfMonth.getMonth() == 1 ? 29 : daysOfMonthsNum[firstDayOfMonth.getMonth()]);
@@ -27,7 +27,7 @@ var displayCalendar = function () {
     // Construct string Log
     for (i; i < gridWeekNum; ++i) {
         // Clear log buffer
-        logBuffer2 = "";
+        logBuffer = "";
 
         // Clear day buffer
         j = 0;
@@ -36,7 +36,7 @@ var displayCalendar = function () {
         for (j; j < gridDayNum; ++j) {
             // Construct header if is the first week
             if (i == 0) {
-                logHeader2 += " " + weekDaysNames[j].black + " ";
+                logHeader += " " + weekDaysNames[j].black + " ";
             }
 
             // Set the day number
@@ -58,16 +58,16 @@ var displayCalendar = function () {
                 dayBuffer = dayBuffer.bgWhite.black;
             }
 
-            logBuffer2 += dayBuffer;
+            logBuffer += dayBuffer;
         }
 
         // Print the header if is the first week
         if (i == 0) {
-            console.log(logHeader2.bgBlue);
+            console.log(logHeader.bgBlue);
         }
 
         // Print the log day
-        console.log(logBuffer2);
+        console.log(logBuffer);
     }
 }
 
