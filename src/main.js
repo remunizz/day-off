@@ -1,11 +1,10 @@
 var colors = require('colors');
 
 // Main
-var displayCalendar = function () {
+var displayCalendar = function (currentDate, year, month) {
     var weekDaysNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     var daysOfMonthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    var currentDate = new Date(Date.now());
-    var firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    var firstDayOfMonth = new Date(year != undefined ? year : currentDate.getFullYear(), month != undefined ? month : currentDate.getMonth(), 1);
 
     // Store the first day of the week (to avoid function loop call)
     var firstDayWeek = firstDayOfMonth.getDay();
@@ -54,7 +53,7 @@ var displayCalendar = function () {
 
             if (dayNum <= 0) {
                 dayBuffer = "    "
-            } else if (dayNum == currentDate.getUTCDate()) {
+            } else if (dayNum == currentDate.getUTCDate() && firstDayOfMonth.getMonth() == currentDate.getMonth()) {
                 dayBuffer = dayBuffer.bgWhite.black;
             }
 
@@ -72,4 +71,19 @@ var displayCalendar = function () {
 }
 
 // Init
-displayCalendar();
+var init = function () {
+    var currentDay = new Date(Date.now());
+
+    // inital support to full calendar display
+    if (process.argv[2] == "-y") {
+        var i = 0;
+        var total = 12;
+        for (i; i < total; ++i) {
+            displayCalendar(currentDay, currentDay.getFullYear(), i, currentDay.getDate());
+        }
+    } else {
+        displayCalendar(currentDay, currentDay.getFullYear(), currentDay.getMonth(), currentDay.getDate());
+    }
+}
+
+init();
