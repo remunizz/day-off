@@ -1,11 +1,12 @@
 var colors = require('colors');
 
 // Main
-var displayCalendar = function () {
+var displayCalendar = function (currentDate, year, month) {
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
     var weekDaysNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     var daysOfMonthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    var currentDate = new Date(Date.now());
-    var firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    var firstDayOfMonth = new Date(year != undefined ? year : currentDate.getFullYear(), month != undefined ? month : currentDate.getMonth(), 1);
 
     // Store the first day of the week (to avoid function loop call)
     var firstDayWeek = firstDayOfMonth.getDay();
@@ -17,17 +18,18 @@ var displayCalendar = function () {
     var gridWeekNum = 6;
 
     var dayBuffer;
-    var logBuffer2;
+    var logBuffer;
     var dayNum;
-    var logHeader2 = "";
+    var logHeader = "";
     var dayCount = 0;
 
     var maxDays = (firstDayOfMonth.getFullYear() % 4 == 0 && firstDayOfMonth.getMonth() == 1 ? 29 : daysOfMonthsNum[firstDayOfMonth.getMonth()]);
 
+    console.log(monthNames[new Date(year, month).getMonth()]);
     // Construct string Log
     for (i; i < gridWeekNum; ++i) {
         // Clear log buffer
-        logBuffer2 = "";
+        logBuffer = "";
 
         // Clear day buffer
         j = 0;
@@ -36,7 +38,7 @@ var displayCalendar = function () {
         for (j; j < gridDayNum; ++j) {
             // Construct header if is the first week
             if (i == 0) {
-                logHeader2 += " " + weekDaysNames[j].black + " ";
+                logHeader += " " + weekDaysNames[j].black + " ";
             }
 
             // Set the day number
@@ -54,22 +56,38 @@ var displayCalendar = function () {
 
             if (dayNum <= 0) {
                 dayBuffer = "    "
-            } else if (dayNum == currentDate.getUTCDate()) {
+            } else if (dayNum == currentDate.getUTCDate() && firstDayOfMonth.getMonth() == currentDate.getMonth()) {
                 dayBuffer = dayBuffer.bgWhite.black;
             }
 
-            logBuffer2 += dayBuffer;
+            logBuffer += dayBuffer;
         }
 
         // Print the header if is the first week
         if (i == 0) {
-            console.log(logHeader2.bgBlue);
+            console.log(logHeader.bgBlue);
         }
 
         // Print the log day
-        console.log(logBuffer2);
+        console.log(logBuffer);
     }
+    //console.log("\n");
 }
 
 // Init
-displayCalendar();
+var init = function () {
+    var currentDay = new Date(Date.now());
+
+    // inital support to full calendar display
+    if (process.argv[2] == "-y") {
+        var i = 0;
+        var total = 12;
+        for (i; i < total; ++i) {
+            displayCalendar(currentDay, currentDay.getFullYear(), i, currentDay.getDate());
+        }
+    } else {
+        displayCalendar(currentDay, currentDay.getFullYear(), currentDay.getMonth(), currentDay.getDate());
+    }
+}
+
+init();
