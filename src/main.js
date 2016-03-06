@@ -6,8 +6,7 @@
 var Calendar = require('./calendar');
 
 // Creating a new instace of the calendar.
-var inCalendar = new Calendar(2016, 02, 29);
-inCalendar.show();
+var inCalendar = new Calendar(2016, 03, 05);
 
 // Updating the localization.
 inCalendar.setLocalization({
@@ -17,7 +16,7 @@ inCalendar.setLocalization({
     , WeekDayFormat       : ' {0} '
     , MonthDayFormat      : '  {0}  '
     , MonthDayFormatHigh  : ' {0}  '
-    , MonthDayFormatEmpty : '#####'
+    , MonthDayFormatEmpty : '     '
 });
 
 // Showing the contents of the calendar instance in console.
