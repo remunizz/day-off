@@ -9,16 +9,19 @@ var Calendar = require('./calendar');
 var inCalendar = new Calendar(2016, 02, 29);
 inCalendar.show();
 
+// Creating Brazilian dictionary.
+var dictionaryBR = {
+	      culture             : 'Pt-Br'
+	    , monthNames          : ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+	    , weekDaysNames       : ['Dom','Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
+	    , WeekDayFormat       : ' {0} '
+	    , MonthDayFormat      : '  {0}  '
+	    , MonthDayFormatHigh  : ' {0}  '
+	    , MonthDayFormatEmpty : ' ##  '
+};
+
 // Updating the localization.
-inCalendar.setLocalization({
-      culture             : 'Pt-Br'
-    , monthNames          : ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-    , weekDaysNames       : ['Dom','Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
-    , WeekDayFormat       : ' {0} '
-    , MonthDayFormat      : '  {0}  '
-    , MonthDayFormatHigh  : ' {0}  '
-    , MonthDayFormatEmpty : '#####'
-});
+inCalendar.setLocalization(dictionaryBR);
 
 // Showing the contents of the calendar instance in console.
 inCalendar.show();
