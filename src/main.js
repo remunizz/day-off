@@ -6,8 +6,7 @@
 var Calendar = require('./calendar');
 
 // Creating a new instace of the calendar.
-var inCalendar = new Calendar(2016, 02, 29);
-inCalendar.show();
+var inCalendar = new Calendar(2016, 03, 05);
 
 // Creating Brazilian dictionary.
 var dictionaryBR = {
