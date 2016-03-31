@@ -6,7 +6,11 @@
 var Calendar = require('./calendar');
 
 // Creating a new instace of the calendar.
-var inCalendar = new Calendar(2016, 03, 05);
+var current_day = new Date();
+var inCalendar = new Calendar(current_day.getFullYear(), current_day.getMonth() +1, current_day.getDate());
+
+// Showing the default calendar
+inCalendar.show();
 
 // Creating Brazilian dictionary.
 var dictionaryBR = {
