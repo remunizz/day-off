@@ -1,6 +1,7 @@
 // Summary:
 //    Requirements, resources, addons and others stuffs requireds
 var colors = require('colors');
+var optionExtender = require('optionextender')
 
 // Summary:
 //   Calendar.
@@ -145,7 +146,7 @@ Calendar.prototype.setDate = function (year, month, day) {
 Calendar.prototype.setLocalization = function (localization) {
 
     if (typeof(localization) !== 'object') throw ('an valid `localization` argument is required');
-    this.localization = localization;
+    this.localization = optionExtender(this.localization, localization);
 
 };
 
@@ -155,7 +156,7 @@ Calendar.prototype.setLocalization = function (localization) {
 //    Returns the current localizatin configuration.
 Calendar.prototype.getLocalization = function () {
 
-    return this.localization = localization;
+    return this.localization;
 
 };
 
