@@ -1,7 +1,7 @@
 // Summary:
 //    Requirements, resources, addons and others stuffs requireds
 var colors = require('colors');
-var optionExtender = require('optionextender')
+var optionExtender = require('optionextender');
 
 // Summary:
 //   Calendar.
