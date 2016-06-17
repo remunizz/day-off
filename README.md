@@ -6,4 +6,4 @@
 3. Run `cd day-off`
 4. Run `npm install && npm start` 
 
-Made with :heart: by [remunizz](https://github.com/remunizz).
+Made with :heart: by [remunizz](https://github.com/remunizz) and [contributors](https://github.com/remunizz/day-off/graphs/contributors).
