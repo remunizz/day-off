@@ -4,7 +4,7 @@
   "description": "node-js calendar",
   "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Initial status\"",
     "compile": "./node_modules/.bin/babel src --out-dir dist", 
     "start": "npm run compile && node dist/main.js"
   },
