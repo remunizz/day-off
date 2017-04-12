@@ -128,9 +128,9 @@ Calendar.prototype.getDate = function () {
 //   - day(required): number of day in the month, between(1 - 31).
 Calendar.prototype.setDate = function (year, month, day) {
 
-  if (typeof(year) !== 'number')  throw ('an valid `year` argument is required');
-  if (typeof(month) !== 'number') throw ('an valid `month` argument is required');
-  if (typeof(day) !== 'number')   throw ('an valid `day` argument is required');
+  if (typeof(year) !== 'number')  throw ('a valid `year` argument is required');
+  if (typeof(month) !== 'number') throw ('a valid `month` argument is required');
+  if (typeof(day) !== 'number')   throw ('a valid `day` argument is required');
 
   this.days            = month == 2 && year % 4 == 0 ? 29 : this.monthDays[month - 1]; //Leap year bugfix
   this.date            = new Date(year, month - 1, day);
@@ -145,7 +145,7 @@ Calendar.prototype.setDate = function (year, month, day) {
 //    - localization(required): the specfied culture location information.
 Calendar.prototype.setLocalization = function (localization) {
 
-    if (typeof(localization) !== 'object') throw ('an valid `localization` argument is required');
+    if (typeof(localization) !== 'object') throw ('a valid `localization` argument is required');
     this.localization = optionExtender(this.localization, localization);
 
 };
