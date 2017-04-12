@@ -13,9 +13,9 @@ var Calendar = function (year, month, day) {
 
   // Summary:
   //    Validation arguments before initalization to grant execution
-  if (typeof(year) !== 'number')  throw ('an valid `year` argument is required');
-  if (typeof(month) !== 'number') throw ('an valid `month` argument is required');
-  if (typeof(day) !== 'number')   throw ('an valid `day` argument is required');
+  if (typeof(year) !== 'number')  throw ('a valid `year` argument is required');
+  if (typeof(month) !== 'number') throw ('a valid `month` argument is required');
+  if (typeof(day) !== 'number')   throw ('a valid `day` argument is required');
 
   // Summary:
   //    Localization, they shold store all language properties, the user may change the outoput names
