@@ -5,8 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Initial status\"",
-    "compile": "./node_modules/.bin/babel src --out-dir dist", 
-    "start": "npm run compile && node dist/main.js"
+    "start": "node src/main.js"
   },
   "repository": {
     "type": "git",
@@ -25,9 +24,5 @@
   "dependencies": {
     "colors": "^1.1.2",
     "optionextender": "1.0.4"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.10.1",
-    "babel-preset-es2015": "^6.9.0"
   }
 }
