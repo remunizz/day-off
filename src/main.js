@@ -2,8 +2,8 @@ var Calendar = require('./calendar');
 
 class Main {
 	constructor() {
-		// Creating a new instace of the calendar.
 		this.currentDay = new Date();
+		// Create a new instance of the calendar.
 		this.inCalendar = new Calendar(this.currentDay.getFullYear(), this.currentDay.getMonth() +1, this.currentDay.getDate());
 	}
 

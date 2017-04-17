@@ -13,7 +13,7 @@ const dictionaryBR = {
 class Main {
 	constructor(dictionary) {
 		this.current_day = new Date();
-		// Create a new instace of the calendar.
+		// Create a new instance of the calendar.
 		this.inCalendar = new Calendar(this.current_day.getFullYear(), this.current_day.getMonth() +1, this.current_day.getDate());
 		this.dictionary = dictionary;
 	}
