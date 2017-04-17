@@ -1,8 +1,3 @@
-// Summary:
-//   This file have some examples of calendars usages.
-// ########################################################################
-
-// Exporting the calendar module.
 var Calendar = require('./calendar');
 
 class Main {
