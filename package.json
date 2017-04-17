@@ -1,6 +1,6 @@
 {
   "name": "day-off",
-  "version": "0.0.1",
+  "version": "0.5.16",
   "description": "node-js calendar",
   "main": "src/main.js",
   "scripts": {
