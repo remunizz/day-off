@@ -1,4 +1,5 @@
-# day-off
+# :calendar: day-off
+![screenshot](static/screenshot.png)
 
 ## Build
 1. Install [Node.js](http://nodejs.org/)
