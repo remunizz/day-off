@@ -1,7 +1,3 @@
-// Summary:
-//   This file have some examples of calendars usages.
-// ########################################################################
-
 var Calendar = require('../../src/calendar');
 
 const dictionaryBR = {
