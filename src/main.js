@@ -1,16 +1,12 @@
-var Calendar = require('./calendar');
+var Calendar = require('./calendar')
 
-class Main {
-	constructor() {
-		this.currentDay = new Date();
-		// Create a new instance of the calendar.
-		this.inCalendar = new Calendar(this.currentDay.getFullYear(), this.currentDay.getMonth() +1, this.currentDay.getDate());
-	}
+const Main = () => {
+  const currentDate = new Date()
+  const calendar = Calendar( currentDate.getFullYear(), currentDate.getMonth() +1, currentDate.getDate() )
 
-	start() {
-		// Print the calendar 
-		this.inCalendar.show();
-	}
+	return ({
+		start: () => calendar.show()
+	})
 }
 
-new Main().start();
+Main().start()
