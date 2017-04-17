@@ -13,7 +13,7 @@ class Main {
 	}
 
 	start() {
-		// Showing the default calendar
+		// Print the calendar 
 		this.inCalendar.show();
 	}
 }
