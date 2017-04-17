@@ -24,7 +24,7 @@ class Main {
 			this.inCalendar.setLocalization(this.dictionary);
 		}
 
-		// print the calendar
+		// Print the calendar
 		this.inCalendar.show();
 	}
 }
