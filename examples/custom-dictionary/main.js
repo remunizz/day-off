@@ -1,7 +1,3 @@
-// Summary:
-//   This file have some examples of calendars usages.
-// ########################################################################
-
 var Calendar = require('../../src/calendar');
 
 const dictionaryBR = {
@@ -16,8 +12,8 @@ const dictionaryBR = {
 
 class Main {
 	constructor(dictionary) {
-		// Creating a new instace of the calendar.
 		this.current_day = new Date();
+		// Create a new instance of the calendar.
 		this.inCalendar = new Calendar(this.current_day.getFullYear(), this.current_day.getMonth() +1, this.current_day.getDate());
 		this.dictionary = dictionary;
 	}
@@ -28,7 +24,7 @@ class Main {
 			this.inCalendar.setLocalization(this.dictionary);
 		}
 
-		// print the calendar
+		// Print the calendar
 		this.inCalendar.show();
 	}
 }
