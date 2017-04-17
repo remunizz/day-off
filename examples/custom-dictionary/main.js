@@ -1,6 +1,6 @@
-var Calendar = require('../../src/calendar');
+var Calendar = require( '../../src/calendar' )
 
-const dictionaryBR = {
+const PT_BR_LOCALIZATION = {
 	culture               : 'Pt-Br'
 	, monthNames          : ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 	, weekDaysNames       : ['Dom','Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
@@ -8,25 +8,20 @@ const dictionaryBR = {
 	, MonthDayFormat      : '  {0}  '
 	, MonthDayFormatHigh  : ' {0}  '
 	, MonthDayFormatEmpty : ' ##  '
-};
-
-class Main {
-	constructor(dictionary) {
-		this.current_day = new Date();
-		// Create a new instance of the calendar.
-		this.inCalendar = new Calendar(this.current_day.getFullYear(), this.current_day.getMonth() +1, this.current_day.getDate());
-		this.dictionary = dictionary;
-	}
-
-	start() {
-		// Customize the calendar dictionary
-		if(this.dictionary != undefined) {
-			this.inCalendar.setLocalization(this.dictionary);
-		}
-
-		// Print the calendar
-		this.inCalendar.show();
-	}
 }
 
-new Main(dictionaryBR).start();
+const Main = dictionary => {
+	const currentDate = new Date()
+	const calendar = Calendar( currentDate.getFullYear(), currentDate.getMonth() +1, currentDate.getDate() )
+
+	// Customize the calendar's localization dictionary
+	if( dictionary !== undefined ) {
+		calendar.setLocalization( dictionary )
+	}
+
+	return ({
+		start: () => calendar.show()
+	})
+}
+
+Main( PT_BR_LOCALIZATION ).start()
