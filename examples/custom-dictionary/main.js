@@ -1,4 +1,4 @@
-var Calendar = require('../../src/calendar')
+const dayOff = require('../../src/calendar')
 
 const PT_BR_LOCALIZATION = {
   culture: 'Pt-Br',
@@ -23,9 +23,9 @@ const PT_BR_LOCALIZATION = {
   MonthDayFormatEmpty: ' ##  '
 }
 
-const Main = dictionary => {
+const main = dictionary => {
   const currentDate = new Date()
-  const calendar = Calendar(
+  const calendar = dayOff(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
     currentDate.getDate()
@@ -41,4 +41,4 @@ const Main = dictionary => {
   }
 }
 
-Main(PT_BR_LOCALIZATION).start()
+main(PT_BR_LOCALIZATION).start()

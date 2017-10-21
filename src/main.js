@@ -1,8 +1,8 @@
-var Calendar = require('./calendar')
+const dayOff = require('./calendar')
 
-const Main = () => {
+const main = () => {
   const currentDate = new Date()
-  const calendar = Calendar(
+  const calendar = dayOff(
     currentDate.getFullYear(),
     currentDate.getMonth() + 1,
     currentDate.getDate()
@@ -13,4 +13,4 @@ const Main = () => {
   }
 }
 
-Main().start()
+main().start()
