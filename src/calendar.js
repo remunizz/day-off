@@ -29,7 +29,11 @@ const EN_US_LOCALIZATION = {
 //   - month(required): number of the month, between 1 and 12.
 //   - day(required): number of day, between 1 and 31.
 const Calendar = (year, month, day) => {
-  let days, date, firstDayOfMonth, firstDayWeek, localization
+  let days
+  let date
+  let firstDayOfMonth
+  let firstDayWeek
+  let localization
 
   // Set the calendar's date
   // Arguments:
@@ -37,13 +41,19 @@ const Calendar = (year, month, day) => {
   //   - month(required): number of the month, between 1 and 12.
   //   - day(required): number of day, between 1 and 31.
   const setDate = (year, month, day) => {
-    if (typeof year !== 'number') throw 'a valid `year` argument is required'
-    if (typeof month !== 'number') throw 'a valid `month` argument is required'
-    if (typeof day !== 'number') throw 'a valid `day` argument is required'
+    if (typeof year !== 'number') {
+      throw new TypeError('a valid `year` argument is required')
+    }
+    if (typeof month !== 'number') {
+      throw new TypeError('a valid `month` argument is required')
+    }
+    if (typeof day !== 'number') {
+      throw new TypeError('a valid `day` argument is required')
+    }
 
     const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-    days = month == 2 && year % 4 == 0 ? 29 : monthDays[month - 1] // Leap year bugfix.
+    days = month === 2 && year % 4 === 0 ? 29 : monthDays[month - 1] // Leap year bugfix.
     date = new Date(year, month - 1, day)
     firstDayOfMonth = new Date(year, month - 1, 1)
     firstDayWeek = firstDayOfMonth.getDay()
@@ -54,7 +64,7 @@ const Calendar = (year, month, day) => {
   setDate(year, month, day)
 
   const replace = (target, args) => {
-    if (args == null || args.length <= 0) {
+    if (args === null || args.length <= 0) {
       return
     }
 
@@ -69,7 +79,7 @@ const Calendar = (year, month, day) => {
   //   - localization(required): the localization dictionary.
   const setLocalization = nextLocalization => {
     if (typeof localization !== 'object') {
-      throw 'a valid `localization` argument is required'
+      throw new TypeError('a valid `localization` argument is required')
     }
 
     localization = optionExtender(localization, nextLocalization)
@@ -77,10 +87,14 @@ const Calendar = (year, month, day) => {
 
   // Generate and print the calendar.
   const show = () => {
-    let dayBuffer, logBuffer, dayNum, isBufferFirstLine
+    let dayBuffer
+    let logBuffer
+    let dayNum
+    let weekIndex
+    let isBufferFirstLine
 
-    let headerColumns = '',
-      dayCount = 0
+    let headerColumns = ''
+    let dayCount = 0
     const weekDays = 7
 
     for (let i = 0; i < weekDays; ++i) {
@@ -96,7 +110,8 @@ const Calendar = (year, month, day) => {
           ]).white
         }
 
-        dayCount = weekDays * i + j + 1
+        weekIndex = weekDays * i
+        dayCount = weekIndex + j + 1
         dayNum = dayCount - firstDayWeek
 
         // Validate and format the day string.
@@ -111,8 +126,8 @@ const Calendar = (year, month, day) => {
         if (dayNum <= 0) {
           dayBuffer = localization.MonthDayFormatEmpty.trap
         } else if (
-          dayNum == date.getUTCDate() &&
-          firstDayOfMonth.getMonth() == date.getMonth()
+          dayNum === date.getUTCDate() &&
+          firstDayOfMonth.getMonth() === date.getMonth()
         ) {
           dayBuffer = dayBuffer.bgWhite.black
         }
