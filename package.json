@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/remunizz/day-off#readme",
   "dependencies": {
-    "colors": "^1.1.2",
+    "chalk": "^2.2.0",
     "optionextender": "1.0.4"
   },
   "devDependencies": {

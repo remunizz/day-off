@@ -1,4 +1,4 @@
-const colors = require('colors')
+const chalk = require('chalk')
 const optionExtender = require('optionextender')
 
 const EN_US_LOCALIZATION = {
@@ -105,9 +105,11 @@ const Calendar = (year, month, day) => {
 
         if (isBufferFirstLine) {
           // Add the week day header.
-          headerColumns += replace(localization.WeekDayFormat, [
+          const headerDay = replace(localization.WeekDayFormat, [
             localization.weekDaysNames[j]
-          ]).white
+          ])
+
+          headerColumns += chalk.white(headerDay)
         }
 
         weekIndex = weekDays * i
@@ -129,7 +131,7 @@ const Calendar = (year, month, day) => {
           dayNum === date.getUTCDate() &&
           firstDayOfMonth.getMonth() === date.getMonth()
         ) {
-          dayBuffer = dayBuffer.bgWhite.black
+          dayBuffer = chalk.bgWhite.black(dayBuffer)
         }
 
         logBuffer += dayBuffer
@@ -137,7 +139,7 @@ const Calendar = (year, month, day) => {
 
       // Print the header.
       if (isBufferFirstLine) {
-        console.log(headerColumns.bgBlue)
+        console.log(chalk.bgBlue(headerColumns))
       }
 
       // Print the body.
