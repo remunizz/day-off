@@ -4,7 +4,7 @@
   "description": "node-js calendar",
   "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Initial status\"",
+    "test": "xo && echo \"Initial status\"",
     "start": "node src/main.js",
     "format": "prettier --write './**/*.js'"
   },
@@ -27,10 +27,17 @@
     "optionextender": "1.0.4"
   },
   "devDependencies": {
-    "prettier": "1.7.4"
+    "prettier": "1.7.4",
+    "xo": "^0.18.2"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "xo": {
+    "rules": {
+      "indent": 0,
+      "semi": 0
+    }
   }
 }
