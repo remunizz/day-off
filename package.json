@@ -6,7 +6,8 @@
   "scripts": {
     "test": "xo && echo \"Initial status\"",
     "start": "node src/main.js",
-    "format": "prettier --write './**/*.js'"
+    "format": "prettier --write './**/*.js'",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "optionextender": "1.0.4"
   },
   "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
     "prettier": "1.7.4",
     "xo": "^0.18.2"
   },
@@ -39,5 +42,11 @@
       "indent": 0,
       "semi": 0
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
